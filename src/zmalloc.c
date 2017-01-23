@@ -90,14 +90,10 @@ void zlibc_free(void *ptr) {
 
 #endif
 
-// 更新已使用内存大小
 #define update_zmalloc_stat_alloc(__n) do { \
     size_t _n = (__n); \
-    // 按 4字节向上取整
     if (_n&(sizeof(long)-1)) _n += sizeof(long)-(_n&(sizeof(long)-1)); \
-    // 如果设置了线程安全，调用专门线程安全函数
     if (zmalloc_thread_safe) { \
-        // 使用院子操作或者互斥锁，更新内存占用数值 used_memory
         update_zmalloc_stat_add(_n); \
     } else { \
         used_memory += _n; \

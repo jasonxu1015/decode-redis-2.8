@@ -1657,7 +1657,7 @@ void initServer() {
 
     // 初始化 redis 数据集
     /* Create the Redis databases, and initialize other internal state. */
-    for (j = 0; j < server.REDIS_DEFAULT_DBNUM; j++) { // 初始化多个数据库
+    for (j = 0; j < server.dbnum; j++) { // 初始化多个数据库
         // 哈希表，用于存储键值对
         server.db[j].dict = dictCreate(&dbDictType,NULL);
         // 哈希表，用于存储每个键的过期时间

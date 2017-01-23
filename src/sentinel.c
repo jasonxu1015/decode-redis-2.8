@@ -212,7 +212,7 @@ struct sentinelState {
                            Key is the instance name, value is the
                            sentinelRedisInstance structure pointer. */
     int tilt;           /* Are we in TILT mode? */
-    int running_scripts;    /* Number of scripts in execution right now. */、
+    int running_scripts;    /* Number of scripts in execution right now. */
 
     // 注释有错误应该为
     // mstime_t tilt_start_time;   /* When TILT started. */
